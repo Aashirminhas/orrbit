@@ -1,0 +1,269 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, Zap, ShieldCheck, Flag, Check, Star, Sparkles } from "lucide-react";
+import heroImg from "@/assets/hero.jpg";
+import workRestaurant from "@/assets/work-restaurant.jpg";
+import workRetail from "@/assets/work-retail.jpg";
+import workService from "@/assets/work-service.jpg";
+import { SiteLayout } from "@/components/site/SiteLayout";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Orbit Digital Solutions — Web Design for US Small Businesses" },
+      { name: "description", content: "Premium websites delivered in 48 hours. One-time payment, no subscriptions. Built for American small businesses." },
+      { property: "og:title", content: "Orbit Digital Solutions — Premium Web Design" },
+      { property: "og:description", content: "High-performance websites delivered in 48 hours. One-time payment." },
+    ],
+  }),
+  component: Home,
+});
+
+function Home() {
+  return (
+    <SiteLayout>
+      <Hero />
+      <SocialProof />
+      <Work />
+      <WhyUs />
+      <Pricing />
+      <Testimonials />
+      <ContactCta />
+    </SiteLayout>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative overflow-hidden gradient-hero text-white">
+      <div className="absolute inset-0 grid-pattern opacity-40" />
+      <img
+        src={heroImg}
+        alt=""
+        width={1920}
+        height={1080}
+        className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-screen"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[oklch(0.16_0.06_265)]" />
+
+      <div className="relative mx-auto max-w-7xl px-5 pt-24 pb-32 md:px-8 md:pt-32 md:pb-40">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
+            <Sparkles className="h-3.5 w-3.5" />
+            Limited slots available — May 2026
+          </span>
+          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+            Professional Web Design for{" "}
+            <span className="bg-gradient-to-r from-white to-[oklch(0.78_0.14_245)] bg-clip-text text-transparent">
+              American Small Businesses
+            </span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
+            High-performance, mobile-optimized websites delivered in 48 hours.
+            No hidden fees. No monthly subscriptions.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary shadow-elegant transition-all hover:scale-[1.03]"
+            >
+              Get Started
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              to="/work"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition-all hover:bg-white/10"
+            >
+              View Our Work
+            </Link>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-white/60">
+            <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[oklch(0.78_0.14_245)]" /> 48-hour delivery</span>
+            <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[oklch(0.78_0.14_245)]" /> One-time payment</span>
+            <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[oklch(0.78_0.14_245)]" /> 100% ownership</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SocialProof() {
+  return (
+    <section className="border-y border-border bg-secondary/40">
+      <div className="mx-auto max-w-7xl px-5 py-8 md:px-8">
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground/70">
+          <span>Trusted by 120+ US Small Businesses</span>
+          <span className="hidden h-1 w-1 rounded-full bg-muted-foreground/40 md:block" />
+          <span>4.9 ★ Average Rating</span>
+          <span className="hidden h-1 w-1 rounded-full bg-muted-foreground/40 md:block" />
+          <span>Delivered in 48 Hours</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Work() {
+  const projects = [
+    { title: "Hudson Street Bistro", category: "Restaurant", img: workRestaurant },
+    { title: "Maple & Co. Boutique", category: "Retail", img: workRetail },
+    { title: "Whitlock Legal Group", category: "Service Business", img: workService },
+  ];
+  return (
+    <section className="py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-xl">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Our Work</span>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-5xl">
+              Websites that look great. Websites that convert.
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              We build clean, fast, and functional websites for hospitality, retail, and service providers across the USA.
+            </p>
+          </div>
+          <Link to="/work" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+            See all projects <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {projects.map((p) => (
+            <div key={p.title} className="group overflow-hidden rounded-2xl border border-border bg-card transition-all hover:shadow-card-hover">
+              <div className="aspect-[4/3] overflow-hidden bg-secondary">
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  width={1024}
+                  height={768}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent">{p.category}</p>
+                <h3 className="mt-1.5 font-display text-lg font-bold text-foreground">{p.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhyUs() {
+  const items = [
+    { icon: ShieldCheck, title: "Transparent Pricing", desc: "One-time payment. You own everything — no surprise fees, no monthly retainers." },
+    { icon: Zap, title: "Fast Delivery", desc: "Websites ready in as little as 48 hours, without sacrificing craft or quality." },
+    { icon: Flag, title: "US-Focused Design", desc: "Built specifically for American customers, markets, and search behavior." },
+  ];
+  return (
+    <section className="bg-secondary/40 py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Why Choose Us</span>
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-5xl">Built for trust, speed, and results.</h2>
+        </div>
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {items.map((it) => (
+            <div key={it.title} className="rounded-2xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:shadow-elegant">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                <it.icon className="h-6 w-6" />
+              </span>
+              <h3 className="mt-5 font-display text-xl font-bold">{it.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Pricing() {
+  return (
+    <section id="pricing" className="py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Pricing</span>
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-5xl">Simple, Transparent Pricing</h2>
+          <p className="mt-4 text-base text-muted-foreground">
+            No monthly retainers. No hidden fees. You own 100% of your website.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <PricingCard
+            name="The Essential Launch"
+            price="499"
+            tag="Best for getting online fast"
+            features={[
+              "3-page website (Home, Services, Contact)",
+              "Mobile-first responsive design",
+              "Google Business integration",
+              "Contact forms & click-to-call",
+              "48-hour delivery",
+            ]}
+          />
+          <PricingCard
+            name="The Business Growth"
+            price="799"
+            tag="Most popular"
+            highlight
+            features={[
+              "7-page website (Home, About, Gallery, Services, Reviews, FAQ, Contact)",
+              "Live Google / Yelp review integration",
+              "Interactive content (menus, catalogs, galleries)",
+              "Basic SEO optimization",
+              "5-day delivery",
+            ]}
+          />
+          <PricingCard
+            name="The Enterprise Elite"
+            price="1,299"
+            tag="Full-scale build"
+            features={[
+              "Unlimited pages",
+              "Booking / ordering system integration",
+              "Advanced local SEO strategy",
+              "High-speed performance optimization",
+              "7-day priority support",
+              "7–10 day delivery",
+            ]}
+          />
+        </div>
+
+        <p className="mx-auto mt-10 max-w-2xl text-center text-xs text-muted-foreground">
+          50% upfront payment required, 50% after completion. 2 revisions included with every plan.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function PricingCard({
+  name, price, tag, features, highlight,
+}: { name: string; price: string; tag: string; features: string[]; highlight?: boolean }) {
+  return (
+    <div className={`relative flex flex-col rounded-2xl border p-8 transition-all ${
+      highlight
+        ? "border-primary bg-primary text-primary-foreground shadow-elegant scale-[1.02]"
+        : "border-border bg-card hover:-translate-y-1 hover:shadow-elegant"
+    }`}>
+      {highlight && (
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+          Most Popular
+        </span>
+      )}
+      <p className={`text-xs font-semibold uppercase tracking-wider ${highlight ? "text-primary-foreground/70" : "text-accent"}`}>{tag}</p>
+      <h3 className="mt-2 font-display text-xl font-bold">{name}</h3>
+      <div className="mt-5 flex items-baseline gap-1.5">
+        <span className="font-display text-5xl font-bold tracking-tight">${price}</span>
+        <span className={`text-sm ${highlight ? "text-primary-foreground/60" : "text-muted-foreground"}`}>one-time</span>
+      </div>
+      <ul className="mt-7 space-y-3 text-sm">
+        {features.map((f) => (
+          <li key={f} className="flex items-start gap-2.5
