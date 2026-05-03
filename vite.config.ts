@@ -6,7 +6,7 @@ import netlify from '@netlify/vite-plugin-tanstack-start'
 export default defineConfig({
   plugins: [
     react(),
-    TanStackStartVite(),
+    TanStackStartVite({ target: "netlify" }),  // ← THIS IS THE FIX
     netlify()
   ]
 })

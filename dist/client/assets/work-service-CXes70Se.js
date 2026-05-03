@@ -1,0 +1,1 @@
+import{c as s}from"./SiteLayout-pvoQ2xaw.js";const r=[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"m12 5 7 7-7 7",key:"xquz4c"}]],a=s("arrow-right",r),o="/assets/work-restaurant-CWfp2vgj.jpg",e="/assets/work-retail-BDDk8VkG.jpg",c="/assets/work-service-BjOJ4PIy.jpg";export{a as A,e as a,c as b,o as w};
